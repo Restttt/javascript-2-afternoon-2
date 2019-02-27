@@ -164,10 +164,9 @@ const finder = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     if (randomNumber === arr[i]) {
       return true;
-    } else {
-      return false;
-    }
+    } 
   }
+  return false;
 }
 
 
@@ -200,21 +199,11 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 const removeItem = (myGroceryList, item) => {
   for (let i = 0; i < myGroceryList.length; i++) {
     if (myGroceryList[i] === item) {
-      myGroceryList.splice(myGroceryList[i], 1);
-    }
+      myGroceryList.splice(i, 1);
+    } 
   }
   return myGroceryList;
 }
-
-const addItem = (myGroceryList, item) => {
-  for (let i = 0; i < myGroceryList.length; i++) {
-    if (myGroceryList.includes(item) !== false) {
-      myGroceryList.push(item);
-    }
-  }
-  return myGroceryList;
-}
-
 
 
 ////////// PROBLEM 9 //////////
@@ -245,7 +234,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+const addTen = (nums) => {
+  let addedTen = [];
+  for (let i = 0; i < nums.length; i++) {
+    nums[i] = parseFloat(nums[i]);
+    addedTen.push(nums[i] + 10);
+  }
+  return addedTen;
+}
 
 
 
@@ -270,7 +266,15 @@ for(var i = 0; i < num2; i++){
   Return the array which is longest.
 */
 
-//Code Here
+const longer = (arr1, arr2) => {
+  howLongArr1 = arr1.length;
+  howLongArr2 = arr2.length;
+  if (howLongArr1 > howLongArr2) {
+    return arr1;
+  } else {
+    return arr2;
+  }
+}
 
 
 
@@ -282,7 +286,16 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+const both = (arr1, arr2) => {
+  let matchNumbers = [];
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) !== -1) {
+      matchNumbers.push(arr2[i]);
+    }
+  }
+  return matchNumbers;
+}
 
 
 
@@ -322,8 +335,12 @@ var colt = {
   After that console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
+console.log(devMountainEmployees);
 
 
 /*
@@ -331,8 +348,17 @@ var colt = {
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
+const removeEmployee = (arr, id) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === id) {
+      arr.splice(arr[i], 1);
+    }
+  }
+  return arr;
+}
 
+removeEmployee(devMountainEmployees, 'Cahlan');
+console.log(devMountainEmployees);
 
 
 ////////// PROBLEM 13 //////////
@@ -343,15 +369,15 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
+const users = [];
 
 
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
-
   Include the following user1 object as one of the objects in your array.
 */
+
 
 // Do not edit the code below.
 var user1 = {
@@ -362,7 +388,20 @@ var user1 = {
 };
 // Do not edit the code above.
 
-//Code Here
+users.push(user1);
+users.push({
+  name: 'Tyleradfdadfafsaf McGinnis',
+  email: 'tylermcginn234234234is33@gmail.com',
+  password: 'iLoveJavaScript',
+  username: 'infiniteLoop'
+})
+users.push({
+  name: 'Tylerafadfadf McGinnis',
+  email: 'tylermcginnis34234 233@gmail.com',
+  password: 'iLoveJavaScript',
+  username: 'infiniteLoop'
+})
+console.log(users)
 
 
 
@@ -376,7 +415,17 @@ var user1 = {
   Once you find the particular index he's located in, delete him from the array.
 */
 
-//Code Here
+const deleteUser = (arr, id) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].email === id) {
+      arr.splice(arr[i], 1);
+    }
+  }
+  return arr;
+}
+
+deleteUser(users, `tylermcginnis33@gmail.com`);
+console.log(users);
 
 
 
