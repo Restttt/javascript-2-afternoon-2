@@ -197,12 +197,28 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 const removeItem = (myGroceryList, item) => {
-  for (let i = 0; i < myGroceryList.length; i++) {
-    if (myGroceryList[i] === item) {
-      myGroceryList.splice(i, 1);
-    } 
+  if (myGroceryList && item ) {
+    for (let i = 0; i < myGroceryList.length; i++) {
+      if (myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+      } 
+    }
+    return myGroceryList;
   }
-  return myGroceryList;
+  return [];
+}
+
+const addItem = (myGroceryList, item) => {
+  if (myGroceryList && item) {
+    for (let i = 0; i < myGroceryList.length; i++) {
+      if (myGroceryList !== item) {
+        myGroceryList.unshift(item);
+      }
+    }
+    return myGroceryList;
+  } else {
+    return [];
+  }
 }
 
 
